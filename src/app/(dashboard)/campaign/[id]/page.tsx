@@ -24,7 +24,7 @@ const Edit = () => {
 
     // fetch prospect data from localstorage
     useEffect(() => {
-        const data: any = JSON.parse(localStorage.getItem("prospectData"));
+        const data: any = JSON.parse(localStorage.getItem("prospectData") as any);
         setProspectInput(data);
     }, []);
 
@@ -32,7 +32,7 @@ const Edit = () => {
     useEffect(() => {
         const storedCampaigns: any = localStorage.getItem("campaign");
         if (storedCampaigns) {
-            setCampaigns(JSON.parse(storedCampaigns));
+            setCampaigns(JSON.parse(storedCampaigns as any));
         }
     }, []);
 
@@ -58,7 +58,7 @@ const Edit = () => {
 
     // this useEffect will call, if campaigns data is updated. Then it will store in localstorage
     useEffect(() => {
-        localStorage.setItem("campaign", JSON.stringify(campaigns))
+        localStorage.setItem("campaign", JSON.stringify(campaigns) as any)
     }, [campaigns])
 
     // set input data to state
