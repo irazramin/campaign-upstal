@@ -3,6 +3,7 @@ import React, {useEffect, useState} from 'react';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faArrowLeft, faChevronDown} from "@fortawesome/free-solid-svg-icons";
 import {useParams, useRouter} from "next/navigation";
+import {toast} from "react-toastify";
 
 const Edit = () => {
     const param: any = useParams();
@@ -79,6 +80,9 @@ const Edit = () => {
                 const updatedItems = [...campaigns];
                 updatedItems[idx] = campaign;
                 setCampaigns(updatedItems);
+                toast.success("Data updated", {
+                    theme: "colored",
+                });
             }
         });
 

@@ -3,6 +3,7 @@ import React, {useEffect, useState} from 'react';
 import {usePathname, useRouter} from "next/navigation";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faPlus, faTrashAlt} from "@fortawesome/free-solid-svg-icons";
+import {toast} from "react-toastify";
 
 const Prospects = () => {
     const [render, setRender]: any = useState(false);
@@ -59,6 +60,9 @@ const Prospects = () => {
         if (window.confirm("Do you really want to leave?")) {
             const afterDelete: any = prospectInput.filter((item: any, idx: any) => index !== idx);
             localStorage.setItem("prospectData", JSON.stringify(afterDelete));
+            toast.success("Prospect deleted", {
+                theme: "colored",
+            });
             setRender(!render)
         }
     }

@@ -4,6 +4,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faEnvelope, faPen, faTrashAlt} from "@fortawesome/free-solid-svg-icons";
 import {usePathname, useRouter} from "next/navigation";
 import axios from "axios";
+import {toast} from "react-toastify";
 
 const Campaign = () => {
     const router: any = useRouter();
@@ -30,6 +31,7 @@ const Campaign = () => {
         if (window.confirm("Do you want to delete?")) {
             const afterDelete: any = campaigns.filter((item: any, idx: any): boolean => index !== idx);
             localStorage.setItem("campaign", JSON.stringify(afterDelete));
+            toast.success("Campaign Deleted")
             setRender(!render)
         }
     }
@@ -38,11 +40,16 @@ const Campaign = () => {
         if (window.confirm("Do you want to send mail?")) {
             for (const prospect of data.prospect) {
                 try {
-                    await axios.post('/api/email', {
+                    const data = await axios.post('/api/email', {
                         to: `${prospect.email}`,
                         subject: 'Campaign Started',
                         text: 'Campaign has be started',
                     });
+                   if(data.status === 200) {
+                       toast.success("Successfully mail send!", {
+                           theme: "colored",
+                       });
+                   }
                 } catch (error) {
                     console.error('Error sending email:', error);
                 }
@@ -55,7 +62,7 @@ const Campaign = () => {
         router.push(`${pathname}/${index + 1}`);
     }
     return (
-        <div className="h-[calc(100vh-100px)] m-[10px] md:m-[40px]">
+        <div className="h-[calc(100vh-100px)] m-[20px] md:m-[40px]">
             <div className="bg-white p-3 flex items-center justify-between mb-5">
                 <h4 className="text-xl font-semibold uppercase">Campaigns</h4>
                 <button type="button"
