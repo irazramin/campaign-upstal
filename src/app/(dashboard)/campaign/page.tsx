@@ -27,7 +27,7 @@ const Campaign = () => {
     }
 
     const handleDelete = (index: any): any => {
-        if (window.confirm("Do you really want to leave?")) {
+        if (window.confirm("Do you want to delete?")) {
             const afterDelete: any = campaigns.filter((item: any, idx: any): boolean => index !== idx);
             localStorage.setItem("campaign", JSON.stringify(afterDelete));
             setRender(!render)
@@ -35,33 +35,20 @@ const Campaign = () => {
     }
 
     const handleSendMail = async (data: any): Promise<any> => {
-        const apiKey: any = 'a0284f88fc95b688a60f7430c9592066-b0ed5083-0d6f72d2';
-        const domain: any = 'sandboxb1b84b7a83ea4875af5377de3b5f074d.mailgun.org';
+        if (window.confirm("Do you want to send mail?")) {
+            for (const prospect of data.prospect) {
+                try {
+                    await axios.post('/api/email', {
+                        to: `${prospect.email}`,
+                        subject: 'Campaign Started',
+                        text: 'Campaign has be started',
+                    });
+                } catch (error) {
+                    console.error('Error sending email:', error);
+                }
+            }
+        }
 
-       for (const item of data.prospect) {
-           const recipient: any = item.email;
-
-           const formData: any = new FormData();
-           formData.append('from', 'irazramin@gmail.com');
-           formData.append('to', recipient);
-           formData.append('subject', 'Test Email');
-
-           formData.append('text', 'This is a test email sent from Vue.js using the Mailgun API.');
-
-           try {
-               await axios.post(`https://api.mailgun.net/v3/${domain}/messages`, formData, {
-                   auth: {
-                       username: 'api',
-                       password: apiKey,
-                   },
-               });
-
-               alert('Email sent successfully');
-           } catch (error: any) {
-               console.error('Error sending email:', error);
-               alert('Failed to send email');
-           }
-       }
     }
 
     const handleEdit = (index: any): any => {
