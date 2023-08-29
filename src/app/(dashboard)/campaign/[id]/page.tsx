@@ -50,7 +50,7 @@ const Edit = () => {
         const {id} = param;
         if(campaigns) {
             if (typeof id === "string") {
-                const campaignData: any = campaigns.filter((item, idx): boolean => parseInt(id) === (idx+1))
+                const campaignData: any = campaigns.filter((item: any, idx: any): boolean => parseInt(id) === (idx+1))
                 setCampaign(campaignData[0]);
             }
         }

@@ -28,7 +28,7 @@ const Campaign = () => {
 
     const handleDelete = (index: any): any => {
         if (window.confirm("Do you really want to leave?")) {
-            const afterDelete: any = campaigns.filter((item, idx): boolean => index !== idx);
+            const afterDelete: any = campaigns.filter((item: any, idx: any): boolean => index !== idx);
             localStorage.setItem("campaign", JSON.stringify(afterDelete));
             setRender(!render)
         }

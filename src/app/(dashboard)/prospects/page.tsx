@@ -57,7 +57,7 @@ const Prospects = () => {
 
     const handleDelete = (index: any): any => {
         if (window.confirm("Do you really want to leave?")) {
-            const afterDelete: any = prospectInput.filter((item, idx) => index !== idx);
+            const afterDelete: any = prospectInput.filter((itemitem: any, idxitem: any) => index !== idx);
             localStorage.setItem("prospectData", JSON.stringify(afterDelete));
             setRender(!render)
         }
