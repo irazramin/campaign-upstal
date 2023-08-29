@@ -74,7 +74,7 @@ const Edit = () => {
         const {id} = param;
         e.preventDefault();
 
-        campaigns.forEach((item, idx): any => {
+        campaigns.forEach((item: any, idx: any): any => {
             if((idx+1) === parseInt(id as string)) {
                 const updatedItems = [...campaigns];
                 updatedItems[idx] = campaign;
