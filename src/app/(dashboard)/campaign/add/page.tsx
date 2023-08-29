@@ -16,20 +16,20 @@ const Add = () => {
         linkedin: ""
     }]);
 
-    const [selectedProspect, setSelectedProspect]: [] = useState([])
+    const [selectedProspect, setSelectedProspect]: any = useState([])
 
-    const [prospectCollapse, setProspectCollapse] = useState(false);
+    const [prospectCollapse, setProspectCollapse]: any = useState(false);
 
     const [campaigns, setCampaigns]: any = useState([])
 
     useEffect(() => {
-        const data = JSON.parse(localStorage.getItem("prospectData"));
+        const data: any = JSON.parse(localStorage.getItem("prospectData"));
         setProspectInput(data);
     }, []);
 
     useEffect(() => {
         // Load campaigns from local storage when component mounts
-        const storedCampaigns = localStorage.getItem("campaign");
+        const storedCampaigns: any = localStorage.getItem("campaign");
         if (storedCampaigns) {
             setCampaigns(JSON.parse(storedCampaigns));
         }

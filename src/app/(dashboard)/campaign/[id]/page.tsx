@@ -24,13 +24,13 @@ const Edit = () => {
 
     // fetch prospect data from localstorage
     useEffect(() => {
-        const data = JSON.parse(localStorage.getItem("prospectData"));
+        const data: any = JSON.parse(localStorage.getItem("prospectData"));
         setProspectInput(data);
     }, []);
 
     // fetch data from localstorage
     useEffect(() => {
-        const storedCampaigns = localStorage.getItem("campaign");
+        const storedCampaigns: any = localStorage.getItem("campaign");
         if (storedCampaigns) {
             setCampaigns(JSON.parse(storedCampaigns));
         }
@@ -50,7 +50,7 @@ const Edit = () => {
         const {id} = param;
         if(campaigns) {
             if (typeof id === "string") {
-                const campaignData = campaigns.filter((item, idx): boolean => parseInt(id) === (idx+1))
+                const campaignData: any = campaigns.filter((item, idx): boolean => parseInt(id) === (idx+1))
                 setCampaign(campaignData[0]);
             }
         }

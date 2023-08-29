@@ -14,7 +14,7 @@ const Campaign = () => {
     const [campaigns, setCampaign]: any = useState([]);
 
     useEffect(() => {
-        const campaignData = JSON.parse(localStorage.getItem("campaign"));
+        const campaignData: any = JSON.parse(localStorage.getItem("campaign"));
         if (campaignData) {
             setCampaign(campaignData);
         }
