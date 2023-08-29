@@ -26,7 +26,7 @@ const Campaign = () => {
         router.push(pathname + '/add');
     }
 
-    const handleDelete = (index): any => {
+    const handleDelete = (index: any): any => {
         if (window.confirm("Do you really want to leave?")) {
             const afterDelete: any = campaigns.filter((item, idx): boolean => index !== idx);
             localStorage.setItem("campaign", JSON.stringify(afterDelete));
@@ -34,7 +34,7 @@ const Campaign = () => {
         }
     }
 
-    const handleSendMail = async (data): Promise<any> => {
+    const handleSendMail = async (data: any): Promise<any> => {
         const apiKey: any = 'a0284f88fc95b688a60f7430c9592066-b0ed5083-0d6f72d2';
         const domain: any = 'sandboxb1b84b7a83ea4875af5377de3b5f074d.mailgun.org';
 
@@ -57,14 +57,14 @@ const Campaign = () => {
                });
 
                alert('Email sent successfully');
-           } catch (error) {
+           } catch (error: any) {
                console.error('Error sending email:', error);
                alert('Failed to send email');
            }
        }
     }
 
-    const handleEdit = (index): any => {
+    const handleEdit = (index: any): any => {
         router.push(`${pathname}/${index + 1}`);
     }
     return (
@@ -79,7 +79,7 @@ const Campaign = () => {
 
             </div>
 
-            {campaigns?.map((item, idx): any => {
+            {campaigns?.map((item: any, idx: any): any => {
                 return (
                     <div className="" key={idx}>
                         <div className="bg-white rounded border-b border-t w-full px-[30px] py-[20px]">

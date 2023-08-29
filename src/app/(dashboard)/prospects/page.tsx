@@ -27,7 +27,7 @@ const Prospects = () => {
         }]);
     }
 
-    const handleInput = (e, index): any => {
+    const handleInput = (e: any, index: any): any => {
         e.preventDefault();
         const {name, value}: any = e.target;
         const inputsData: any = [...prospectInput];
@@ -55,7 +55,7 @@ const Prospects = () => {
         }
     }, [render]);
 
-    const handleDelete = (index): any => {
+    const handleDelete = (index: any): any => {
         if (window.confirm("Do you really want to leave?")) {
             const afterDelete: any = prospectInput.filter((item, idx) => index !== idx);
             localStorage.setItem("prospectData", JSON.stringify(afterDelete));
@@ -90,7 +90,7 @@ const Prospects = () => {
                                     </tr>
                                     </thead>
                                     <tbody className="border border-gray-300">
-                                    {prospectInput?.map((item, idx): any => {
+                                    {prospectInput?.map((item: any, idx: any): any => {
                                         return (
                                             <tr
                                                 key={idx}

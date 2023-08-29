@@ -23,7 +23,7 @@ const Edit = () => {
     const [campaign, setCampaign]: any = useState({});
 
     // fetch prospect data from localstorage
-    useEffect(() => {
+    useEffect((): any => {
         const data: any = JSON.parse(localStorage.getItem("prospectData") as any);
         setProspectInput(data);
     }, []);
@@ -36,7 +36,7 @@ const Edit = () => {
         }
     }, []);
 
-    const handleProspectCheck = (selectedProspectData: any) => {
+    const handleProspectCheck = (selectedProspectData: any): any => {
         if (selectedProspect) {
             setSelectedProspect([...selectedProspect, selectedProspectData]);
         } else {
@@ -62,7 +62,7 @@ const Edit = () => {
     }, [campaigns])
 
     // set input data to state
-    const handleInput = (e): any => {
+    const handleInput = (e: any): any => {
         const {name, value} = e.target;
         const inputValue = {...campaign};
         inputValue[name] = value;
@@ -70,7 +70,7 @@ const Edit = () => {
     }
 
     // update campaign date
-    const handleSubmit = (e): any => {
+    const handleSubmit = (e: any): any => {
         const {id} = param;
         e.preventDefault();
 
@@ -145,7 +145,7 @@ const Edit = () => {
                                             </tr>
                                             </thead>
                                             <tbody className="border border-gray-300">
-                                            {prospectInput?.map((item, idx): any => {
+                                            {prospectInput?.map((item: any, idx: any): any => {
                                                 return (
                                                     <tr
                                                         key={idx}

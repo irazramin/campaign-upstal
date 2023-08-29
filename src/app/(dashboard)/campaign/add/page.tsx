@@ -35,7 +35,7 @@ const Add = () => {
         }
     }, []);
 
-    const handleProspectCheck = (selectedProspectData): any => {
+    const handleProspectCheck = (selectedProspectData: any): any => {
         if (selectedProspect) {
             setSelectedProspect([...selectedProspect, selectedProspectData]);
         } else {
@@ -44,7 +44,7 @@ const Add = () => {
         }
     }
 
-    const handleSubmit = (e): any => {
+    const handleSubmit = (e: any): any => {
         e.preventDefault();
         index +=1
         const data: any = {
@@ -138,7 +138,7 @@ const Add = () => {
                                             </tr>
                                             </thead>
                                             <tbody className="border border-gray-300">
-                                            {prospectInput?.map((item, idx): any => {
+                                            {prospectInput?.map((item: any, idx: any): any => {
                                                 return (
                                                     <tr
                                                         key={idx}
