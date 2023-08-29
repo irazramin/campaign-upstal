@@ -17,8 +17,8 @@ const Edit = () => {
         linkedin: ""
     }]);
 
-    const [selectedProspect, setSelectedProspect]: [] = useState([])
-    const [prospectCollapse, setProspectCollapse] = useState(false);
+    const [selectedProspect, setSelectedProspect]: any = useState([])
+    const [prospectCollapse, setProspectCollapse]: any = useState(false);
     const [campaigns, setCampaigns]: any = useState([]);
     const [campaign, setCampaign]: any = useState({});
 

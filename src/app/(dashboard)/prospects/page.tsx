@@ -17,7 +17,6 @@ const Prospects = () => {
     }]);
 
     const addProspectHandle = () => {
-        console.log(prospectInput)
         setProspectInput([...prospectInput, {
             email: "",
             firstName: "",
