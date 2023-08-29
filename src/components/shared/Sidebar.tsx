@@ -9,9 +9,9 @@ import {library} from "@fortawesome/fontawesome-svg-core";
 export default function Sidebar({ sidebarOpen, setSidebarOpen }) {
     library.add(faChevronRight, faTimes, faUserPen)
 
-    const router = useRouter();
-    const pathname = usePathname();
-    const [logoutData, setLogoutData] = useState({})
+    const router: any = useRouter();
+    const pathname: any = usePathname();
+    const [logoutData, setLogoutData]: any = useState({})
 
     const navItems: any = [
         {
@@ -27,7 +27,6 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }) {
             icon: faUserPen
         }
     ];
-
 
     return (
         <aside

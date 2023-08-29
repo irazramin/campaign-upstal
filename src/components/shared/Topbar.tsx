@@ -4,10 +4,10 @@ import {faBars, faBell, faChevronDown} from "@fortawesome/free-solid-svg-icons"
 
 
 export default function Topbar({ sidebarOpen, setSidebarOpen }) {
-
-    const handleSidebar = () => {
+    const handleSidebar = (): any => {
         setSidebarOpen(!sidebarOpen)
     }
+
     return (
         <nav
             className='bg-white min-h-[60px] w-full relative shadow flex items-center justify-end px-[30px] md:px-[44px] py-[16px] '>

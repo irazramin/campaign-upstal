@@ -6,14 +6,14 @@ import {usePathname, useRouter} from "next/navigation";
 import axios from "axios";
 
 const Campaign = () => {
-    const router = useRouter();
-    const pathname = usePathname();
-    const form = useRef();
+    const router: any = useRouter();
+    const pathname: any = usePathname();
+    const form: any = useRef();
 
-    const [render, setRender] = useState(false);
+    const [render, setRender]: any = useState(false);
     const [campaigns, setCampaign]: any = useState([]);
 
-    useEffect(() => {
+    useEffect((): any => {
         const campaignData: any = JSON.parse(localStorage.getItem("campaign") as any);
         if (campaignData) {
             setCampaign(campaignData);
@@ -22,27 +22,26 @@ const Campaign = () => {
 
 
 
-    const handleNavigate = () => {
+    const handleNavigate = (): any => {
         router.push(pathname + '/add');
-        console.log(pathname + '/add')
     }
 
-    const handleDelete = index => {
+    const handleDelete = (index): any => {
         if (window.confirm("Do you really want to leave?")) {
-            const afterDelete = campaigns.filter((item, idx): boolean => index !== idx);
+            const afterDelete: any = campaigns.filter((item, idx): boolean => index !== idx);
             localStorage.setItem("campaign", JSON.stringify(afterDelete));
             setRender(!render)
         }
     }
 
-    const handleSendMail = async (data) => {
-        const apiKey = 'a0284f88fc95b688a60f7430c9592066-b0ed5083-0d6f72d2';
-        const domain = 'sandboxb1b84b7a83ea4875af5377de3b5f074d.mailgun.org';
-        console.log(data)
-       for (const item of data.prospect) {
-           const recipient = item.email;
+    const handleSendMail = async (data): Promise<any> => {
+        const apiKey: any = 'a0284f88fc95b688a60f7430c9592066-b0ed5083-0d6f72d2';
+        const domain: any = 'sandboxb1b84b7a83ea4875af5377de3b5f074d.mailgun.org';
 
-           const formData = new FormData();
+       for (const item of data.prospect) {
+           const recipient: any = item.email;
+
+           const formData: any = new FormData();
            formData.append('from', 'irazramin@gmail.com');
            formData.append('to', recipient);
            formData.append('subject', 'Test Email');
@@ -65,7 +64,7 @@ const Campaign = () => {
        }
     }
 
-    const handleEdit = (index) => {
+    const handleEdit = (index): any => {
         router.push(`${pathname}/${index + 1}`);
     }
     return (
@@ -80,7 +79,7 @@ const Campaign = () => {
 
             </div>
 
-            {campaigns?.map((item, idx) => {
+            {campaigns?.map((item, idx): any => {
                 return (
                     <div className="" key={idx}>
                         <div className="bg-white rounded border-b border-t w-full px-[30px] py-[20px]">

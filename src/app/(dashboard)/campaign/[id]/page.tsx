@@ -5,9 +5,9 @@ import {faArrowLeft, faChevronDown} from "@fortawesome/free-solid-svg-icons";
 import {useParams, useRouter} from "next/navigation";
 
 const Edit = () => {
-    const param = useParams();
-    const router = useRouter();
-    const [render, setRender] = useState(false)
+    const param: any = useParams();
+    const router: any = useRouter();
+    const [render, setRender]: any = useState(false)
     const [prospectInput, setProspectInput]: any = useState([{
         email: "",
         firstName: "",
@@ -36,7 +36,7 @@ const Edit = () => {
         }
     }, []);
 
-    const handleProspectCheck = selectedProspectData => {
+    const handleProspectCheck = (selectedProspectData: any) => {
         if (selectedProspect) {
             setSelectedProspect([...selectedProspect, selectedProspectData]);
         } else {
@@ -46,7 +46,7 @@ const Edit = () => {
     }
 
     // set single data to state based on id
-    useEffect(() => {
+    useEffect((): any => {
         const {id} = param;
         if(campaigns) {
             if (typeof id === "string") {
@@ -62,7 +62,7 @@ const Edit = () => {
     }, [campaigns])
 
     // set input data to state
-    const handleInput = (e) => {
+    const handleInput = (e): any => {
         const {name, value} = e.target;
         const inputValue = {...campaign};
         inputValue[name] = value;
@@ -70,11 +70,11 @@ const Edit = () => {
     }
 
     // update campaign date
-    const handleSubmit = (e) => {
+    const handleSubmit = (e): any => {
         const {id} = param;
         e.preventDefault();
 
-        campaigns.forEach((item, idx) => {
+        campaigns.forEach((item, idx): any => {
             if((idx+1) === parseInt(id as string)) {
                 const updatedItems = [...campaigns];
                 updatedItems[idx] = campaign;
@@ -145,7 +145,7 @@ const Edit = () => {
                                             </tr>
                                             </thead>
                                             <tbody className="border border-gray-300">
-                                            {prospectInput?.map((item, idx) => {
+                                            {prospectInput?.map((item, idx): any => {
                                                 return (
                                                     <tr
                                                         key={idx}

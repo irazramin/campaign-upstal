@@ -5,8 +5,8 @@ import {faArrowLeft, faChevronDown} from "@fortawesome/free-solid-svg-icons";
 import {useRouter} from "next/navigation";
 
 const Add = () => {
-    const router = useRouter();
-    let index = 0;
+    const router: any = useRouter();
+    let index: any = 0;
     const [prospectInput, setProspectInput]: any = useState([{
         email: "",
         firstName: "",
@@ -22,12 +22,12 @@ const Add = () => {
 
     const [campaigns, setCampaigns]: any = useState([])
 
-    useEffect(() => {
+    useEffect((): any => {
         const data: any = JSON.parse(localStorage.getItem("prospectData") as any);
         setProspectInput(data);
     }, []);
 
-    useEffect(() => {
+    useEffect((): any => {
         // Load campaigns from local storage when component mounts
         const storedCampaigns: any = localStorage.getItem("campaign");
         if (storedCampaigns) {
@@ -35,7 +35,7 @@ const Add = () => {
         }
     }, []);
 
-    const handleProspectCheck = selectedProspectData => {
+    const handleProspectCheck = (selectedProspectData): any => {
         if (selectedProspect) {
             setSelectedProspect([...selectedProspect, selectedProspectData]);
         } else {
@@ -44,10 +44,10 @@ const Add = () => {
         }
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = (e): any => {
         e.preventDefault();
         index +=1
-        const data = {
+        const data: any = {
             id: index,
             name: e.target.name.value,
             contents: e.target.contents.value,
@@ -74,7 +74,7 @@ const Add = () => {
         e.target.reset();
     }
 
-    useEffect(() => {
+    useEffect((): any => {
         localStorage.setItem("campaign", JSON.stringify(campaigns));
     }, [campaigns]);
 
@@ -138,7 +138,7 @@ const Add = () => {
                                             </tr>
                                             </thead>
                                             <tbody className="border border-gray-300">
-                                            {prospectInput?.map((item, idx) => {
+                                            {prospectInput?.map((item, idx): any => {
                                                 return (
                                                     <tr
                                                         key={idx}

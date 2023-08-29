@@ -5,7 +5,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faPlus, faTrashAlt} from "@fortawesome/free-solid-svg-icons";
 
 const Prospects = () => {
-    const [render, setRender] = useState(false);
+    const [render, setRender]: any = useState(false);
 
     const [prospectInput, setProspectInput]: any = useState([{
         email: "",
@@ -16,7 +16,7 @@ const Prospects = () => {
         linkedin: ""
     }]);
 
-    const addProspectHandle = () => {
+    const addProspectHandle = (): any => {
         setProspectInput([...prospectInput, {
             email: "",
             firstName: "",
@@ -27,10 +27,10 @@ const Prospects = () => {
         }]);
     }
 
-    const handleInput = (e, index) => {
+    const handleInput = (e, index): any => {
         e.preventDefault();
-        const {name, value} = e.target;
-        const inputsData = [...prospectInput];
+        const {name, value}: any = e.target;
+        const inputsData: any = [...prospectInput];
 
         if (index >= 0 && index < inputsData.length) {
             inputsData[index][name] = value;
@@ -39,7 +39,7 @@ const Prospects = () => {
         }
     }
 
-    useEffect(() => {
+    useEffect((): any => {
         const data: any = JSON.parse(localStorage.getItem("prospectData") as any);
         if(data) {
             setProspectInput(data);
@@ -55,9 +55,9 @@ const Prospects = () => {
         }
     }, [render]);
 
-    const handleDelete = index => {
+    const handleDelete = (index): any => {
         if (window.confirm("Do you really want to leave?")) {
-            const afterDelete = prospectInput.filter((item, idx) => index !== idx);
+            const afterDelete: any = prospectInput.filter((item, idx) => index !== idx);
             localStorage.setItem("prospectData", JSON.stringify(afterDelete));
             setRender(!render)
         }
@@ -90,7 +90,7 @@ const Prospects = () => {
                                     </tr>
                                     </thead>
                                     <tbody className="border border-gray-300">
-                                    {prospectInput?.map((item, idx) => {
+                                    {prospectInput?.map((item, idx): any => {
                                         return (
                                             <tr
                                                 key={idx}
