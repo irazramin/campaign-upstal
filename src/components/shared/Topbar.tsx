@@ -3,7 +3,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faBars, faBell, faChevronDown} from "@fortawesome/free-solid-svg-icons"
 
 
-export default function Topbar({ sidebarOpen, setSidebarOpen }) {
+export default function Topbar({ sidebarOpen, setSidebarOpen }: any) {
     const handleSidebar = (): any => {
         setSidebarOpen(!sidebarOpen)
     }

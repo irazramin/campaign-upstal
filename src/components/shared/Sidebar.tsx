@@ -6,7 +6,7 @@ import {usePathname, useRouter} from "next/navigation";
 import {useEffect, useState} from "react";
 import {library} from "@fortawesome/fontawesome-svg-core";
 
-export default function Sidebar({ sidebarOpen, setSidebarOpen }) {
+export default function Sidebar({ sidebarOpen, setSidebarOpen }: any) {
     library.add(faChevronRight, faTimes, faUserPen)
 
     const router: any = useRouter();
