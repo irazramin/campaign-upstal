@@ -191,7 +191,7 @@ const Add = () => {
                     </div>
                     <div className="flex flex-col w-full  mt-[15px]">
                         <label htmlFor="message">Message</label>
-                        <textarea name="message" id="" cols="30" rows="10"
+                        <textarea name="message" id="" cols={30} rows={10}
                                   className="border border-gray-300 p-3 rounded w-full mt-2"></textarea>
                     </div>
                     <div className="text-center mt-[30px]">
