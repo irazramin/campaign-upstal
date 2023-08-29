@@ -40,7 +40,7 @@ const Prospects = () => {
     }
 
     useEffect(() => {
-        const data: any = JSON.parse(localStorage.getItem("prospectData"));
+        const data: any = JSON.parse(localStorage.getItem("prospectData") as any);
         if(data) {
             setProspectInput(data);
         }else {

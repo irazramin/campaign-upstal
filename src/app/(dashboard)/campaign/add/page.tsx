@@ -23,7 +23,7 @@ const Add = () => {
     const [campaigns, setCampaigns]: any = useState([])
 
     useEffect(() => {
-        const data: any = JSON.parse(localStorage.getItem("prospectData"));
+        const data: any = JSON.parse(localStorage.getItem("prospectData") as any);
         setProspectInput(data);
     }, []);
 
