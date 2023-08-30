@@ -19,6 +19,7 @@ const Campaign = () => {
         if (campaignData) {
             setCampaign(campaignData);
         }
+
     }, [render])
 
 
@@ -36,14 +37,16 @@ const Campaign = () => {
         }
     }
 
-    const handleSendMail = async (data: any): Promise<any> => {
+
+
+    const handleSendMail = async (campaign: any): Promise<any> => {
         if (window.confirm("Do you want to send mail?")) {
-            for (const prospect of data.prospect) {
+            for (const prospect of campaign.prospect) {
                 try {
                     const data = await axios.post('/api/email', {
                         to: `${prospect.email}`,
                         subject: 'Campaign Started',
-                        text: 'Campaign has be started',
+                        text: `Campaign has been started. Start date ${campaign.start} and end date ${campaign.end}`,
                     });
                    if(data.status === 200) {
                        toast.success("Successfully mail send!", {
@@ -61,6 +64,9 @@ const Campaign = () => {
     const handleEdit = (index: any): any => {
         router.push(`${pathname}/${index + 1}`);
     }
+
+
+
     return (
         <div className="h-[calc(100vh-100px)] m-[20px] md:m-[40px]">
             <div className="bg-white p-3 flex items-center justify-between mb-5">

@@ -6,7 +6,7 @@ import {usePathname, useRouter} from "next/navigation";
 import {useEffect, useState} from "react";
 import {library} from "@fortawesome/fontawesome-svg-core";
 
-export default function Sidebar({ sidebarOpen, setSidebarOpen }: any) {
+export default function Sidebar({ sidebarOpen, setSidebarOpen, render, setRender, setUserLoggedOut, userLoggedOut, handleRemoveAccessToken }: any) {
     library.add(faChevronRight, faTimes, faUserPen)
 
     const router: any = useRouter();
@@ -27,6 +27,12 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }: any) {
             icon: faUserPen
         }
     ];
+
+    const handleLogout = () => {
+        localStorage.removeItem('access_token');
+        setRender(!render);
+        handleRemoveAccessToken(true);
+    }
 
     return (
         <aside
@@ -60,7 +66,7 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }: any) {
                         </Link>
                     ))
                 }
-                <li className='flex justify-center items-end absolute bottom-[30px] text-center text-md mx-auto font-medium left-[40%] cursor-pointer'>Log out</li>
+                <li className='flex justify-center items-end absolute bottom-[30px] text-center text-md mx-auto font-medium left-[40%] cursor-pointer' onClick={handleLogout}>Log out</li>
             </ul>
         </aside>
     )

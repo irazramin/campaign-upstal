@@ -6,11 +6,13 @@ export async function POST(req: Request) {
     const body = await req.json()
     const { to, subject, text } = body;
 
+    console.log('LOG FROM ROUTE', process.env.appPassword)
+
     const transporter = nodemailer.createTransport({
-        service: 'gmail',
+        service: process.env.service,
         auth: {
-            user: 'irazramin@gmail.com',
-            pass: 'fvmiocyrfjdvaqfi',
+            user: process.env.userMail,
+            pass: process.env.appPassword,
         },
     });
 

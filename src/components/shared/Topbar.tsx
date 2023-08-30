@@ -17,15 +17,14 @@ export default function Topbar({ sidebarOpen, setSidebarOpen }: any) {
               </button>
           </div>
             <div className="flex gap-[16.38px] items-center">
-                <div className="bg-[#FFA78D] w-[33.988px] h-[33.988px] rounded-full overflow-hidden block md:hidden">
-                    <img className="w-[28.988px] h-[28.988px]" src="/user.png" alt=""/>
-                </div>
+                {/*<div className="bg-[#FFA78D] w-[33.988px] h-[33.988px] rounded-full overflow-hidden block md:hidden">*/}
+                {/*    <img className="w-[28.988px] h-[28.988px]" src="/user.png" alt=""/>*/}
+                {/*</div>*/}
                 <div
                     className="p-[10.24px]  md:flex items-center justify-between gap-[10.24px] border-2 shadow-sm rounded-lg cursor-pointer hidden">
-                    <img className="w-[33.988px] h-[33.988px]" src="/user.png" alt=""/>
                     <div className="mr-[30px]">
-                        <p className="text-[14px] font-medium text-[#373B5C]">Welcome back,</p>
-                        <h3 className="text-[16px] text-[#373B5C] font-medium">Hello</h3>
+                        <p className="text-[14px] font-medium text-[#373B5C]">Welcome to</p>
+                        <h3 className="text-[16px] text-[#373B5C] font-medium">Dashboard</h3>
                     </div>
                 </div>
             </div>

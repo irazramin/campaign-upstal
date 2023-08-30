@@ -1,7 +1,6 @@
-'use client'
-import Sidebar from "@/components/shared/Sidebar";
-import Topbar from "@/components/shared/Topbar";
-import {useState} from "react";
+
+import Dashboard from "@/components/Dashboard";
+import {cookies} from "next/headers";
 
 
 export default function RootLayout({
@@ -9,20 +8,16 @@ export default function RootLayout({
                                    }: {
     children: React.ReactNode
 }) {
-    const [sidebarOpen, setSidebarOpen]: any = useState(false);
-    return (
-            <div className='text-black bg-[#FAFBFF]'>
-                <div className="flex relative">
-                        <div>
-                            <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen}/>
-                        </div>
+    const accessToken: any = cookies().get('access_token');
 
-                        <div
-                            className={`w-[calc(100vh-300px)] md:ml-[300px] transition-all grow duration-150 overflow-hidden bg-[#F1F2F5] w-full pb-[30px]`}>
-                            <Topbar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen}/>
-                            <section> {children} </section>
-                        </div>
-                </div>
-            </div>
+    const handleRemoveAccessToken: any = async (userLoggedOut: any): any => {
+        "use server"
+        if(userLoggedOut) {
+            cookies().delete('access_token');
+        }
+    }
+
+    return (
+        <Dashboard children={children} accessToken={accessToken} handleRemoveAccessToken={handleRemoveAccessToken}/>
     )
 }
